@@ -1,24 +1,27 @@
 import React from 'react'
-import upcoming from "./../../src/up.jpg"
+import image from "./../../src/up.jpg"
+import "./../App.css"
 function Upcomming() {
     return (
-<div 
-  className="form flex flex-col gap-3 p-6 rounded-lg shadow-lg max-w-md w-full" 
-  style={{ width: '348px', height: '394px' }}
->
-  {/* Image */}
-  <img 
-    src={upcoming}
-    alt="Background" 
-    className="absolute top-0 left-0 w-full h-full object-cover rounded-lg -z-10" 
-  />
-  
-  {/* Content */}
-  <div className="relative text-white z-10">
-    {/* Add form or content here */}
-    <h1>Upcomming events</h1>
+      <div className="flex items-center gap-6">
+          <div>
+    <h1 className=" text-4xl">Upcoming business</h1>
   </div>
+  <div className="w-px h-full bg-blue-500"></div>
+  <div
+    className="form flex flex-col gap-3 p-6 rounded-lg shadow-lg max-w-md w-full"
+    style={{
+      backgroundImage: `url(${image})`,
+      width: '348px',
+      height: '394px',
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+    }}
+  ></div>
+
 </div>
+  
+   
     )
 }
 

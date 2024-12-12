@@ -7,7 +7,7 @@ function Footer() {
         <div className='bg-black p-4'>
             <div className='social flex flex-row justify-between'>
                 <div className='social-ico text-3xl text-white flex flex-row gap-3'>
-                    <FaFacebookSquare />
+                    <a href='https://www.facebook.com/ksrlosal3' className='pointer'><FaFacebookSquare /></a>
                     <FaLinkedin/>
                     <FaInstagram/>
                 </div>
