@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ChevronLeft, ChevronRight } from "react-feather";
-
+import "./../index.css"
 function VideoCarousel({ slides }) {
   const [curr, setCurr] = useState(0);
 
@@ -16,8 +16,8 @@ function VideoCarousel({ slides }) {
 
   return (
     <div
-      className="overflow-hidden relative bg-gray-200 rounded-lg"
-      style={{ height: "500px", width: "150vh" }}
+      className="video overflow-hidden relative bg-gray-200 rounded-lg"
+      // style={{ height: "500px", width: "150vh" }}
     >
       {/* Slides */}
       <div
@@ -39,14 +39,14 @@ function VideoCarousel({ slides }) {
             }}
           >
             <iframe
-              width="1080"
-              height="480"
+              // width="1080"
+              // height="480"
               src={videoUrl}
               title={`Video ${index + 1}`}
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
-              className="rounded-lg"
+              className="youtube rounded-lg"
             ></iframe>
           </div>
         ))}

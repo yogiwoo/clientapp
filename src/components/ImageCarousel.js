@@ -13,8 +13,8 @@ function ImageCarousel({ children: slides }) {
 
   return (
     <div
-      className="overflow-hidden relative bg-gray-200 rounded-lg"
-      style={{ height: "288px", width: "275px" }}
+      className="overflow-hidden relative bg-gray-200"
+      style={{ height: "288px", width: "248px" ,borderRadius:"23px"}}
     >
       {/* Slides */}
       <div
@@ -23,13 +23,13 @@ function ImageCarousel({ children: slides }) {
           transform: `translateX(-${curr * 100}%)`,
         }}
       >
-        {slides.map((slide, index) => (
+        {/* {slides.map((slide, index) => (
           <div
             key={index}
             className="flex-shrink-0"
             style={{
-              width: "275px",
-              height: "400px",
+              width: "288px",
+              height: "270px",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -39,10 +39,28 @@ function ImageCarousel({ children: slides }) {
               src={slide.props.src}
               alt={`Slide ${index + 1}`}
               className="object-contain rounded-md"
-              style={{ maxHeight: "80%", maxWidth: "90%" }}
+              style={{ maxHeight: "100%", maxWidth: "100%" }}
             />
           </div>
-        ))}
+        ))} */}
+         {slides.map((slide, index) => (
+    <div
+      key={index}
+      className="flex-shrink-0 flex items-center justify-center"
+      style={{
+        width: "248px",
+        height: "288px",
+        display: "flex",
+      }}
+    >
+      <img
+        src={slide.props.src}
+        alt={`Slide ${index + 1}`}
+        className="object-contain rounded-md"
+        style={{ maxHeight: "100%", maxWidth: "100%" }}
+      />
+    </div>
+  ))}
       </div>
     </div>
   );

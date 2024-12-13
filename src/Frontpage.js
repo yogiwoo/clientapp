@@ -4,8 +4,6 @@ import ContactForm from "./components/ContactForm";
 import chinaimg from "./../src/china.jpg";
 import Aboutme from "./components/Aboutme";
 import Footer from "./components/Footer";
-import Upcomming from "./components/upcomming";
-import VideoCarouselWithControls from "./components/VideoCarousel";
 import VideoCarousel from "./components/VideoCarousel";
 import ImagePop from "./components/popups/ImagePop";
 import { useState } from "react";
@@ -14,22 +12,19 @@ import up from "./up.jpg"
 const videos = [
   "https://www.youtube.com/embed/LXb3EKWsInQ",
   "https://www.youtube.com/embed/dQw4w9WgXcQ",
-  "https://www.youtube.com/embed/3JZ_D3ELwOQ", 
+  "https://www.youtube.com/embed/3JZ_D3ELwOQ",
 ];
 
 export default function Frontpage() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-  const handleOpenPopup=()=>{
+  const handleOpenPopup = () => {
     setIsPopupOpen(true);
   }
   const handleClosePopup = () => {
     setIsPopupOpen(false);
   };
-
-
-
   const [isPopupOpenx, setIsPopupOpenx] = useState(false);
-  const handleOpenPopupx=()=>{
+  const handleOpenPopupx = () => {
     setIsPopupOpenx(true);
   }
   const handleClosePopupx = () => {
@@ -58,7 +53,6 @@ export default function Frontpage() {
           </div>
           <div>
           </div>
-
         </div>
       </div>
       {/* <hr class="h-px my-8 bg-black border-0 dark:bg-gray-700 w-1/2 mx-auto"/> */}
@@ -71,39 +65,37 @@ export default function Frontpage() {
         </div> */}
         <h1 className="flex justify-center text-5xl">Upcomming Events</h1>
         <p className="text-2xl flex justify-center">Explore upcoming business trips, opportunities, and events  {" "}
-        <span
-          onClick={handleOpenPopupx}
-          className="text-blue-500 cursor-pointer underline"
-        >
-          See More
-        </span>
-           </p>
-
+          <span
+            onClick={handleOpenPopupx}
+            className="text-blue-500 cursor-pointer underline ml-2"
+          >
+            See More
+          </span>
+        </p>
         <Modal open={isPopupOpenx} onClose={handleClosePopupx}>
-        <Box
-          className="rounded-lg shadow-lg p-4"
-          style={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            backgroundColor: "white",
-            padding: "20px",
-            borderRadius: "10px",
-            boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
-            width: "90%",
-            maxWidth: "650px",
-          }}
-        >
-          <h2 className="text-xl font-semibold mb-4">More Information</h2>
-          <img
-            src={up}
-            alt="Upcoming Event"
-            className="w-full h-auto rounded-lg"
-          />
-         
-        </Box>
-      </Modal>
+          <Box
+            className="rounded-lg shadow-lg p-4"
+            style={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              backgroundColor: "white",
+              padding: "20px",
+              borderRadius: "10px",
+              boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
+              width: "90%",
+              maxWidth: "650px",
+            }}
+          >
+            <h2 className="text-xl font-semibold mb-4">More Information</h2>
+            <img
+              src={up}
+              alt="Upcoming Event"
+              className="w-full h-auto rounded-lg"
+            />
+          </Box>
+        </Modal>
       </div>
       {/* <hr class="h-px my-8 bg-black border-0 dark:bg-gray-700 w-1/2 mx-auto"/> */}
       <div className="abt-me flex flex-col justify-center">
@@ -115,7 +107,6 @@ export default function Frontpage() {
       <div className="footer">
         <Footer />
       </div>
-
       {/* <div className="caro">
       <VideoCarouselWithControls/>
      </div> */}
