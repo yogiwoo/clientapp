@@ -14,10 +14,65 @@ function VideoCarousel({ slides }) {
     setCurr((curr) => (curr === slides.length - 1 ? 0 : curr + 1));
   };
 
+  // return (
+  //   <div
+  //     className="video1 overflow-hidden relative bg-gray-200 rounded-lg"
+  //     style={{ height: "500px", width: "150vh" }}
+  //   >
+  //     {/* Slides */}
+  //     <div
+  //       className="flex transition-transform ease-out duration-500"
+  //       style={{
+  //         transform: `translateX(-${curr * 100}%)`,
+  //       }}
+  //     >
+  //       {slides.map((videoUrl, index) => (
+  //         <div
+  //           key={index}
+  //           className="flex-shrink-0"
+  //           style={{
+  //             width: "150vh",
+  //             height: "500px",
+  //             display: "flex",
+  //             alignItems: "center",
+  //             justifyContent: "center",
+  //           }}
+  //         >
+  //           <iframe
+  //             // width="1080"
+  //             // height="480"
+  //             src={videoUrl}
+  //             title={`Video ${index + 1}`}
+  //             frameBorder="0"
+  //             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  //             allowFullScreen
+  //             className="youtube rounded-lg"
+  //           ></iframe>
+  //         </div>
+  //       ))}
+  //     </div>
+
+  //     {/* Navigation Controls */}
+  //     <div className="absolute inset-0 flex items-center justify-between p-4">
+  //       <button
+  //         onClick={prev}
+  //         className="p-1 rounded-full shadow bg-white/80 text-gray-800 hover:bg-white"
+  //       >
+  //         <ChevronLeft size={40} />
+  //       </button>
+  //       <button
+  //         onClick={next}
+  //         className="p-1 rounded-full shadow bg-white/80 text-gray-800 hover:bg-white"
+  //       >
+  //         <ChevronRight size={40} />
+  //       </button>
+  //     </div>
+  //   </div>
+  // );
+
   return (
     <div
-      className="video overflow-hidden relative bg-gray-200 rounded-lg"
-      // style={{ height: "500px", width: "150vh" }}
+      className="video1 overflow-hidden relative bg-gray-200 rounded-lg"
     >
       {/* Slides */}
       <div
@@ -29,18 +84,9 @@ function VideoCarousel({ slides }) {
         {slides.map((videoUrl, index) => (
           <div
             key={index}
-            className="flex-shrink-0"
-            style={{
-              width: "150vh",
-              height: "500px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
+            className="flex-shrink-0 flex items-center justify-center youtube"
           >
             <iframe
-              // width="1080"
-              // height="480"
               src={videoUrl}
               title={`Video ${index + 1}`}
               frameBorder="0"
@@ -51,7 +97,7 @@ function VideoCarousel({ slides }) {
           </div>
         ))}
       </div>
-
+  
       {/* Navigation Controls */}
       <div className="absolute inset-0 flex items-center justify-between p-4">
         <button
@@ -69,6 +115,8 @@ function VideoCarousel({ slides }) {
       </div>
     </div>
   );
+  
+  
 }
 
 export default VideoCarousel;

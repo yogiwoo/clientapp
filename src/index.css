@@ -3,25 +3,24 @@
 @tailwind components;
 @tailwind utilities;
 
-.youtube{
+
+.youtube, .video1 {
     width: 1080px;
     height: 480px;
+    position: relative;
+    z-index: 10;
+    
 }
 
-.video{
-    height: "500px";
-    width: "150vh" ;
-}
-
-@media (min-width:600px) and (max-width:1000px){
-    .youtube{
+@media (min-width: 600px) and (max-width: 1000px) {
+    .youtube, .video1 {
         width: 720px;
         height: 360px;
     }
 }
 
-@media (min-width:300px) and (max-width:600px){
-    .youtube{
+@media (min-width: 300px) and (max-width: 600px) {
+    .youtube, .video1 {
         width: 480px;
         height: 200px;
     }
