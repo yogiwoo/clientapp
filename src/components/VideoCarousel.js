@@ -1,122 +1,62 @@
-import React, { useState } from "react";
-import { ChevronLeft, ChevronRight } from "react-feather";
-import "./../index.css"
-function VideoCarousel({ slides }) {
-  const [curr, setCurr] = useState(0);
+import React from "react";
+import Slider from "react-slick";
+import "./vid.css"
 
-  // Navigate to the previous slide
-  const prev = () => {
-    setCurr((curr) => (curr === 0 ? slides.length - 1 : curr - 1));
+const VideoCarousel = () => {
+  const videos = [
+    "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "https://www.youtube.com/embed/3JZ_D3ELwOQ",
+    "https://www.youtube.com/embed/tgbNymZ7vqY",
+    "https://www.youtube.com/embed/2Vv-BfVoq4g",
+  ];
+
+  const settings = {
+    dots: true, // Show dots below the carousel
+    infinite: true, // Infinite loop
+    speed: 500, // Transition speed
+    slidesToShow: 1, // Show one slide at a time
+    slidesToScroll: 1, // Scroll one slide at a time
+    autoplay: false, // Enable autoplay
+    autoplaySpeed: 3000, // Autoplay every 3 seconds
+    arrows: true, // Show next/previous arrows
+    responsive: [
+      {
+        breakpoint: 1024, // Tablet and desktop
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+      {
+        breakpoint: 768, // Mobile
+        settings: {
+          slidesToShow: 1,
+          arrows: false, // Disable arrows on mobile for better UX
+        },
+      },
+    ],
   };
-
-  // Navigate to the next slide
-  const next = () => {
-    setCurr((curr) => (curr === slides.length - 1 ? 0 : curr + 1));
-  };
-
-  // return (
-  //   <div
-  //     className="video1 overflow-hidden relative bg-gray-200 rounded-lg"
-  //     style={{ height: "500px", width: "150vh" }}
-  //   >
-  //     {/* Slides */}
-  //     <div
-  //       className="flex transition-transform ease-out duration-500"
-  //       style={{
-  //         transform: `translateX(-${curr * 100}%)`,
-  //       }}
-  //     >
-  //       {slides.map((videoUrl, index) => (
-  //         <div
-  //           key={index}
-  //           className="flex-shrink-0"
-  //           style={{
-  //             width: "150vh",
-  //             height: "500px",
-  //             display: "flex",
-  //             alignItems: "center",
-  //             justifyContent: "center",
-  //           }}
-  //         >
-  //           <iframe
-  //             // width="1080"
-  //             // height="480"
-  //             src={videoUrl}
-  //             title={`Video ${index + 1}`}
-  //             frameBorder="0"
-  //             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  //             allowFullScreen
-  //             className="youtube rounded-lg"
-  //           ></iframe>
-  //         </div>
-  //       ))}
-  //     </div>
-
-  //     {/* Navigation Controls */}
-  //     <div className="absolute inset-0 flex items-center justify-between p-4">
-  //       <button
-  //         onClick={prev}
-  //         className="p-1 rounded-full shadow bg-white/80 text-gray-800 hover:bg-white"
-  //       >
-  //         <ChevronLeft size={40} />
-  //       </button>
-  //       <button
-  //         onClick={next}
-  //         className="p-1 rounded-full shadow bg-white/80 text-gray-800 hover:bg-white"
-  //       >
-  //         <ChevronRight size={40} />
-  //       </button>
-  //     </div>
-  //   </div>
-  // );
 
   return (
-    <div
-      className="video1 overflow-hidden relative bg-gray-200 rounded-lg"
-    >
-      {/* Slides */}
-      <div
-        className="flex transition-transform ease-out duration-500"
-        style={{
-          transform: `translateX(-${curr * 100}%)`,
-        }}
-      >
-        {slides.map((videoUrl, index) => (
-          <div
-            key={index}
-            className="flex-shrink-0 flex items-center justify-center youtube"
-          >
+    <div className="flex justify-center bg-[#071E2E] p-10 " style={{borderRadius:"23px"}}>
+      <div style={{ maxWidth: "800px", margin: "0 auto", padding: "20px" }}>
+      <Slider {...settings}>
+        {videos.map((video, index) => (
+          <div key={index} style={{ position: "relative", padding: "10px" }}>
             <iframe
-              src={videoUrl}
-              title={`Video ${index + 1}`}
+              width="100%"
+              height="400"
+              src={video}
+              title={`YouTube video ${index + 1}`}
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
-              className="youtube rounded-lg"
             ></iframe>
           </div>
         ))}
-      </div>
-  
-      {/* Navigation Controls */}
-      <div className="absolute inset-0 flex items-center justify-between p-4">
-        <button
-          onClick={prev}
-          className="p-1 rounded-full shadow bg-white/80 text-gray-800 hover:bg-white"
-        >
-          <ChevronLeft size={40} />
-        </button>
-        <button
-          onClick={next}
-          className="p-1 rounded-full shadow bg-white/80 text-gray-800 hover:bg-white"
-        >
-          <ChevronRight size={40} />
-        </button>
-      </div>
+      </Slider>
+    </div>
     </div>
   );
-  
-  
-}
+};
 
 export default VideoCarousel;

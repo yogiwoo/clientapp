@@ -1,12 +1,19 @@
 import './App.css';
-import ContactForm from './components/ContactForm';
 import Frontpage from './Frontpage';
-
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Success from './components/success';
 function App() {
   return (
-    <div className="App">
-      <Frontpage/>
-    </div>
+  
+    <Router>
+ 
+    <Routes>
+    
+      <Route path="/" element={<Frontpage />} />
+      <Route path="/payment-success" element={<Success />} />
+    </Routes>
+  </Router>
+  
   );
 }
 

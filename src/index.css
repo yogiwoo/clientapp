@@ -3,6 +3,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
 
 .youtube, .video1 {
     width: 1080px;

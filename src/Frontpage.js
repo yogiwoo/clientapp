@@ -63,7 +63,7 @@ export default function Frontpage() {
         <div className="mx-10">
           <ContactForm />
         </div> */}
-        <h1 className="flex justify-center text-5xl">Upcomming Events</h1>
+        <h1 className="flex justify-center text-5xl" id="events">Upcomming Events</h1>
         <p className="text-2xl flex justify-center">Explore upcoming business trips, opportunities, and events  {" "}
           <span
             onClick={handleOpenPopupx}
