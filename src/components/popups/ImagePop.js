@@ -66,55 +66,9 @@ const url="http://localhost:8080"
     };
   }, []);
 
-  // const handlePayment = async () => {
-  //   const amount = 2500; // Replace with your dynamic amount
-
-  //   const response = await fetch(`${url}/create-order`, {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify({
-  //       amount,
-  //       currency: "INR",
-  //       receipt: "receipt#1",
-  //       notes: {},
-  //     }),
-  //   });
-
-  //   const order = await response.json();
-  //   console.log("Order Data:", order);
-
-  //   if (razorpayLoaded && window.Razorpay) {
-  //     const options = {
-  //       key: "rzp_test_IQITvCg8KTKQE2", // Your Razorpay key_id
-  //       amount, // Amount in the smallest unit (e.g., paise for INR)
-  //       currency: "INR",
-  //       name: "Niranjan China",
-  //       description: "Appointment Fees",
-  //       order_id: order.id, // Order ID from your backend
-  //       callback_url: `${url}/verify-payment`, // Success URL
-  //       prefill: {
-  //         name: formData.name,
-  //         email: formData.email,
-  //         contact: formData.mobile,
-  //       },
-  //       theme: {
-  //         color: "#F37254",
-  //       },
-  //     };
-
-  //     const rzp = new window.Razorpay(options);
-  //     rzp.open();
-  //   } else {
-  //     console.error("Razorpay is not loaded");
-  //   }
-  // };
- 
-
   const handlePayment = async () => {
     const amount = 2500; // Replace with your dynamic amount
-  
+
     const response = await fetch(`${url}/create-order`, {
       method: "POST",
       headers: {
@@ -127,10 +81,10 @@ const url="http://localhost:8080"
         notes: {},
       }),
     });
-  
+
     const order = await response.json();
     console.log("Order Data:", order);
-  
+
     if (razorpayLoaded && window.Razorpay) {
       const options = {
         key: "rzp_test_IQITvCg8KTKQE2", // Your Razorpay key_id
@@ -149,37 +103,83 @@ const url="http://localhost:8080"
           color: "#F37254",
         },
       };
-  
+
       const rzp = new window.Razorpay(options);
-  
-      // Open Razorpay payment form
       rzp.open();
-  
-      // Send formData to your backend after payment (in case Razorpay callback misses it)
-      rzp.on('payment.failed', (response) => {
-        // handle failed payment if needed
-        console.log("Payment failed:", response.error);
-      });
-  
-      rzp.on('payment.success', async (response) => {
-        // Send formData and payment data to verify-payment endpoint
-        await fetch(`${url}/verify-payment`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            razorpay_order_id: response.razorpay_order_id,
-            razorpay_payment_id: response.razorpay_payment_id,
-            razorpay_signature: response.razorpay_signature,
-            formData: formData, // Send formData here
-          }),
-        });
-      });
     } else {
       console.error("Razorpay is not loaded");
     }
   };
+ 
+
+  // const handlePayment = async () => {   
+  //   const amount = 2500; // Replace with your dynamic amount
+  
+  //   const response = await fetch(`${url}/create-order`, {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({
+  //       amount,
+  //       currency: "INR",
+  //       receipt: "receipt#1",
+  //       notes: {},
+  //     }),
+  //   });
+  
+  //   const order = await response.json();
+  //   console.log("Order Data:", order);
+  
+  //   if (razorpayLoaded && window.Razorpay) {
+  //     const options = {
+  //       key: "rzp_test_IQITvCg8KTKQE2", // Your Razorpay key_id
+  //       amount, // Amount in the smallest unit (e.g., paise for INR)
+  //       currency: "INR",
+  //       name: "Niranjan China",
+  //       description: "Appointment Fees",
+  //       order_id: order.id, // Order ID from your backend
+  //       callback_url: `${url}/verify-payment`, // Success URL
+  //       prefill: {
+  //         name: formData.name,
+  //         email: formData.email,
+  //         contact: formData.mobile,
+  //       },
+  //       theme: {
+  //         color: "#F37254",
+  //       },
+  //     };
+  
+  //     const rzp = new window.Razorpay(options);
+  
+  //     // Open Razorpay payment form
+  //     rzp.open();
+  
+  //     // Send formData to your backend after payment (in case Razorpay callback misses it)
+  //     rzp.on('payment.failed', (response) => {
+  //       // handle failed payment if needed
+  //       console.log("Payment failed:", response.error);
+  //     });
+  
+  //     rzp.on('payment.success', async (response) => {
+  //       // Send formData and payment data to verify-payment endpoint
+  //       await fetch(`${url}/verify-payment`, {
+  //         method: "POST",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //         body: JSON.stringify({
+  //           razorpay_order_id: response.razorpay_order_id,
+  //           razorpay_payment_id: response.razorpay_payment_id,
+  //           razorpay_signature: response.razorpay_signature,
+  //           formData: formData, // Send formData here
+  //         }),
+  //       });
+  //     });
+  //   } else {
+  //     console.error("Razorpay is not loaded");
+  //   }
+  // };
   
   return (
     <Modal
