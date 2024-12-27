@@ -10,7 +10,8 @@ const ContactFormPopup = ({ open, handleClose }) => {
     mobile: "",
     message: "",
   });
-const url="http://localhost:4005"
+  const url="http://16.171.42.121:8080"
+//const url="http://localhost:8080"
   const handleChange = (e) => {
     const { id, value } = e.target;
     setFormData((prev) => ({ ...prev, [id]: value }));
