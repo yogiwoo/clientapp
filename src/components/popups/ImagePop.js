@@ -10,7 +10,7 @@ const ContactFormPopup = ({ open, handleClose }) => {
     mobile: "",
     message: "",
   });
-  const url="http://15.207.52.233:5000"
+  const url=process.env.REACT_APP_URL
 //const url="http://localhost:8080"
   const handleChange = (e) => {
     const { id, value } = e.target;
