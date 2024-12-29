@@ -8,11 +8,10 @@ function Footer() {
             <div className='social flex flex-row justify-between'>
                 <div className='social-ico text-3xl text-white flex flex-row gap-3'>
                     <a href='https://www.facebook.com/ksrlosal3' className='pointer'><FaFacebookSquare /></a>
-                    <FaLinkedin/>
-                    <FaInstagram/>
+                    <a href='https://www.instagram.com/china_niranjan/'> <FaInstagram/></a>
                 </div>
                 <div className='email'>
-                    <p className='text-white'>email@example.com</p>
+                    <p className='text-white'>rnsharma801@gmail.com</p>
                 </div>
             </div>
         </div>

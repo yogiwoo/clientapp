@@ -36,8 +36,9 @@ const VideoCarousel = () => {
   };
 
   return (
-    <div className="flex justify-center bg-[#071E2E] p-10 " style={{borderRadius:"23px"}}>
-      <div style={{ maxWidth: "800px", margin: "0 auto", padding: "20px" }}>
+    <div className="flex justify-center bg-[#071E2E] md:p-10 p-3 " style={{borderRadius:"23px"}}>
+      {/* <div style={{ maxWidth: "800px", margin: "0 auto", padding: "20px" }}> */}
+      <div className="youtube-carousel">
       <Slider {...settings}>
         {videos.map((video, index) => (
           <div key={index} style={{ position: "relative", padding: "10px" }}>

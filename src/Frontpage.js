@@ -35,7 +35,7 @@ export default function Frontpage() {
       >
         <Navbar />
         <div className="contact flex flex-col justify-center items-center absolute inset-0">
-          <h1 className="text-6xl mb-4">
+          <h1 className="text-6xl mb-4 px-5">
             Book an appointment to talk with Niranjan.
           </h1>
           <div>
@@ -52,16 +52,9 @@ export default function Frontpage() {
           </div>
         </div>
       </div>
-      {/* <hr class="h-px my-8 bg-black border-0 dark:bg-gray-700 w-1/2 mx-auto"/> */}
-      <div className="contact my-10 p-8 flex flex-col gap-4">
-        {/* <div>
-          <Upcomming />
-        </div>
-        <div className="mx-10">
-          <ContactForm />
-        </div> */}
-        <h1 className="flex justify-center text-5xl" id="events">Upcomming Events</h1>
-        <p className="text-2xl flex justify-center">Explore upcoming business trips, opportunities, and events  {" "}
+      <div className="contact my-10 p-8 flex flex-col gap-4  text-center">
+        <h1 className="text-5xl" id="events">Upcomming Events</h1>
+        <p className="text-2xl">Explore upcoming business trips, opportunities, and events  {" "}
           <span
             onClick={handleOpenPopupx}
             className="text-blue-500 cursor-pointer underline ml-2"

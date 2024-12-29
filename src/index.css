@@ -19,6 +19,12 @@
         width: 720px;
         height: 360px;
     }
+    .youtube-carousel{
+        max-width: 500px !important; 
+        margin: 0 auto;
+        padding: 20px;
+    }
+    
 }
 
 @media (min-width: 300px) and (max-width: 600px) {
@@ -26,5 +32,16 @@
         width: 480px;
         height: 200px;
     }
+    .youtube-carousel{
+        max-width: 250px !important;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    
 }
 
+.youtube-carousel{
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}

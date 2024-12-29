@@ -10,7 +10,7 @@ const ContactFormPopup = ({ open, handleClose }) => {
     mobile: "",
     message: "",
   });
-  const url="http://16.171.42.121:8080"
+  const url="http://15.207.52.233:5000/"
 //const url="http://localhost:8080"
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -88,7 +88,7 @@ const ContactFormPopup = ({ open, handleClose }) => {
 
     if (razorpayLoaded && window.Razorpay) {
       const options = {
-        key: "rzp_test_IQITvCg8KTKQE2", // Your Razorpay key_id
+        key: process.env.REACT_APP_RAZOR_KEY, // Your Razorpay key_id
         amount, // Amount in the smallest unit (e.g., paise for INR)
         currency: "INR",
         name: "Niranjan China",

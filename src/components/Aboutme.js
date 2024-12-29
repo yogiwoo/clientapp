@@ -10,11 +10,11 @@ const slides = [
 ]
 function Aboutme() {
   return (
-    <div className='abt-me flex flex-row justify-center bg-customBg p-20 gap-10'>
+    <div className='abt-me flex md:flex-row flex-col justify-center bg-customBg md:p-20 p-5 gap-10'>
 
-      <div className="about  p-8 rounded-md" style={{width:'900px'}}>
-        <h1 className="text-[#98ABCD] text-5xl flex justify-center mb-4">About Me</h1>
-        <p className="text-lg text-white text-center leading-relaxed">
+      <div className="about  p-8 rounded-md text-center md:ps-56" > 
+        <h1 className="text-[#98ABCD] text-5xl  mb-4">About Me</h1>
+        <p className="text-lg text-white">
           Ram Niranjan Sharma is a renowned social media influencer and educator who has
           captivated audiences worldwide with his insightful and unbiased content. Residing in China since 2019,
           he has explored over 80% of the country, offering an authentic glimpse into its business landscape, education system,
@@ -22,7 +22,7 @@ function Aboutme() {
         </p>
       </div>
 
-      <div>
+      <div className='md:pe-24 flex justify-center'>
         <ImageCarousel>
           {slides.map((s, index) => (
             <img key={index} src={s} alt={`Slide ${index + 1}`} className="w-full h-auto" />
